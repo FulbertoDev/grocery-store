@@ -147,3 +147,22 @@
 **Acceptance Criteria:**
 - A cart icon is visible on the home screen
 - Tapping the icon navigates to the cart screen
+
+
+**User Stories For Detail Screen**
+
+- As a user, I want to see detailed information about a selected product so that I can make an informed purchase decision.
+  - Example: The grocery app detail screen shows the product image, name, price, and description.
+  - Why: Helps users evaluate a product before adding it to the cart.
+
+- As a user, I want to add a product to my cart from the detail screen so that I can include it in my order.
+  - Example: The grocery app detail screen has an "Add to Cart" button that updates the cart count instantly.
+  - Why: Allows users to take action directly without navigating away from the product.
+
+- As a user, I want to select the quantity of a product on the detail screen so that I can order the exact amount I need.
+  - Example: The grocery app detail screen includes a quantity selector that updates the total price dynamically.
+  - Why: Gives users control over their order before adding items to the cart.
+
+- As a user, I want to view related products on the detail screen so that I can explore similar items.
+  - Example: The grocery app detail screen for milk shows other dairy products at the bottom of the screen.
+  - Why: Encourages discovery and increases engagement without requiring the user to go back to the home screen.
