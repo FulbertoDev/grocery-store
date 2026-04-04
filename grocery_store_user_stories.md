@@ -104,3 +104,46 @@
 - User details are stored in local storage upon successful login
 - Data is cleared from local storage upon logout
 - If "Stay logged in" is enabled, the session is restored on the next app launch
+
+**US-09 — View home screen**
+> *As a* logged-in user,
+> *I want to* see a home screen upon login,
+> *so that* I can quickly access the main features of the app.
+
+**Acceptance Criteria:**
+- The home screen is only accessible to authenticated users
+- Unauthenticated users are redirected to the login page
+- The home screen displays a welcome message with the user's name
+
+---
+
+**US-10 — View grocery categories**
+> *As a* user,
+> *I want to* browse grocery items organized by category,
+> *so that* I can find products easily.
+
+**Acceptance Criteria:**
+- Categories are displayed on the home screen
+- Tapping a category navigates to the corresponding product list
+
+---
+
+**US-11 — Search for a product**
+> *As a* user,
+> *I want to* search for a product from the home screen,
+> *so that* I can find what I need quickly.
+
+**Acceptance Criteria:**
+- A search bar is visible on the home screen
+- If no results are found, a message reads: "No products match your search."
+
+---
+
+**US-12 — Navigate to shopping cart**
+> *As a* user,
+> *I want to* access my shopping cart from the home screen,
+> *so that* I can review my selected items at any time.
+
+**Acceptance Criteria:**
+- A cart icon is visible on the home screen
+- Tapping the icon navigates to the cart screen
