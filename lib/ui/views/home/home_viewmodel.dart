@@ -1,36 +1,31 @@
-import 'package:grocery_store/app/app.bottomsheets.dart';
-import 'package:grocery_store/app/app.dialogs.dart';
-import 'package:grocery_store/app/app.locator.dart';
-import 'package:grocery_store/ui/common/app_strings.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:grocery_store/core/data/models/product/product.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
-class HomeViewModel extends BaseViewModel {
-  final _dialogService = locator<DialogService>();
-  final _bottomSheetService = locator<BottomSheetService>();
+import '../../../app/app.locator.dart';
+import '../../../core/data/repositories/product.repository.dart';
+import '../../../services/user_service.dart';
 
-  String get counterLabel => 'Counter is: $_counter';
+class HomeViewModel extends ReactiveViewModel {
+  final _service = locator<UserService>();
+  final _productRepository = ProductRepository();
 
-  int _counter = 0;
+  List<Product> get favorites => _service.favorites;
 
-  void incrementCounter() {
-    _counter++;
-    rebuildUi();
+  List<Product> _products = [];
+  List<Product> get products => _products;
+
+  HomeViewModel() {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _getProducts();
+    });
   }
 
-  void showDialog() {
-    _dialogService.showCustomDialog(
-      variant: DialogType.infoAlert,
-      title: 'Stacked Rocks!',
-      description: 'Give stacked $_counter stars on Github',
-    );
+  Future<void> _getProducts() async {
+    _products = await _productRepository.getProducts();
+    notifyListeners();
   }
 
-  void showBottomSheet() {
-    _bottomSheetService.showCustomSheet(
-      variant: BottomSheetType.notice,
-      title: ksHomeBottomSheetTitle,
-      description: ksHomeBottomSheetDescription,
-    );
-  }
+  @override
+  List<ListenableServiceMixin> get listenableServices => [_service];
 }

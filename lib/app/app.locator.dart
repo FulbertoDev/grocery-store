@@ -12,6 +12,11 @@ import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
+import '../core/api/api_client.dart';
+import '../core/local/local_client.dart';
+import '../services/toast_service.dart';
+import '../services/user_service.dart';
+
 final locator = StackedLocator.instance;
 
 Future<void> setupLocator(
@@ -24,4 +29,10 @@ Future<void> setupLocator(
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => LocalClient());
+  locator.registerLazySingleton(() => ApiClient());
+  locator.registerLazySingleton(() => ToastService());
+  final userService = UserService();
+  await userService.init();
+  locator.registerSingleton(userService);
 }

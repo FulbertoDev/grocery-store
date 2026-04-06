@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_store/ui/common/app_colors.dart';
-import 'package:grocery_store/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -27,23 +25,10 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
           topRight: Radius.circular(10),
         ),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            request.title!,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
-          ),
-          verticalSpaceTiny,
-          Text(
-            request.description!,
-            style: const TextStyle(fontSize: 14, color: kcMediumGrey),
-            maxLines: 3,
-            softWrap: true,
-          ),
-          verticalSpaceLarge,
-        ],
+        children: [],
       ),
     );
   }
